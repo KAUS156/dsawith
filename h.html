@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+.display {
+    width: 100%;
+    height: 60px;
+    margin-left: -12px;
+    background: #222;
+    color: white;
+    font-size: 2rem;
+    text-align: right;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+ }
+ .buttons {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 10px;
+        }
+        button {
+            width: 100%;
+            height: 60px;
+            border: none;
+            background: #f8b400;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .equal {
+            background: #ff6363;
+        }
+        .clear {
+            background: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">0</div>
+        <div class="buttons">
+            <button class="clear">C</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>/</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>*</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>-</button>
+            <button>0</button>
+            <button>.</button>
+            <button class="equal">=</button>
+            <button>+</button>
+        </div>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>

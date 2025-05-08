@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Video Lectures</title>
+     <style>
+          body {
+               font-family: Arial, sans-serif;
+               margin: 0;
+               padding: 0;
+               background-color: #f7f9fc;
+          }
+
+          /* Header Section */
+          header {
+               background-color: #007bff;
+               color: white;
+               text-align: center;
+               padding: 50px 0;
+               font-size: 2.5em;
+               animation: fadeIn 1.5s ease-out;
+          }
+
+          /* Grid Layout for Videos */
+          .video-container {
+               display: grid;
+               grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+               gap: 20px;
+               padding: 20px;
+          }
+
+          /* Individual Video Card */
+          .video-card {
+               background-color: white;
+               border-radius: 10px;
+               box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+               overflow: hidden;
+               transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+
+          .video-card:hover {
+               transform: translateY(-10px);
+               box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+          }
+
+          /* Video Thumbnail */
+          .video-thumbnail {
+               width: 100%;
+               height: 180px;
+               object-fit: cover;
+               transition: opacity 0.3s ease;
+          }
+
+          .video-card:hover .video-thumbnail {
+               opacity: 0.8;
+          }
+
+          /* Video Info */
+          .video-info {
+               padding: 20px;
+               text-align: center;
+          }
+
+          .video-title {
+               font-size: 1.5em;
+               color: #333;
+               margin: 10px 0;
+          }
+
+          .video-description {
+               color: #555;
+               font-size: 1em;
+               margin-bottom: 10px;
+          }
+
+          /* Button for Video */
+          .watch-button {
+               background-color: #007bff;
+               color: white;
+               border: none;
+               padding: 10px 20px;
+               font-size: 1em;
+               border-radius: 5px;
+               cursor: pointer;
+               transition: background-color 0.3s ease;
+          }
+
+          .watch-button:hover {
+               background-color: #0056b3;
+          }
+
+          /* Animation for Fade In */
+          @keyframes fadeIn {
+               0% {
+                    opacity: 0;
+               }
+
+               100% {
+                    opacity: 1;
+               }
+          }
+     </style>
+</head>
+
+<body>
+
+     <!-- Header Section -->
+     <header>
+          Video Lectures
+     </header>
+
+     <!-- Video Container -->
+     <div class="video-container">
+          <!-- Video Card 1 -->
+          <div class="video-card">
+               <img src="https://via.placeholder.com/400x225" alt="Video Thumbnail" class="video-thumbnail">
+               <div class="video-info">
+                    <div class="video-title">Web Development Basics</div>
+                    <p class="video-description">Learn the fundamentals of web development including HTML, CSS, and
+                         JavaScript.</p>
+                    <button class="watch-button">Watch Now</button>
+               </div>
+          </div>
+
+          <!-- Video Card 2 -->
+          <div class="video-card">
+               <img src="https://via.placeholder.com/400x225" alt="Video Thumbnail" class="video-thumbnail">
+               <div class="video-info">
+                    <div class="video-title">JavaScript Advanced Concepts</div>
+                    <p class="video-description">Dive deeper into JavaScript with advanced topics like closures,
+                         promises, and async/await.</p>
+                    <button class="watch-button">Watch Now</button>
+               </div>
+          </div>
+
+          <!-- Video Card 3 -->
+          <div class="video-card">
+               <img src="https://via.placeholder.com/400x225" alt="Video Thumbnail" class="video-thumbnail">
+               <div class="video-info">
+                    <div class="video-title">React.js for Beginners</div>
+                    <p class="video-description">Start your journey with React.js by learning components, props, and
+                         state management.</p>
+                    <button class="watch-button">Watch Now</button>
+               </div>
+          </div>
+
+          <!-- Video Card 4 -->
+          <div class="video-card">
+               <img src="https://via.placeholder.com/400x225" alt="Video Thumbnail" class="video-thumbnail">
+               <div class="video-info">
+                    <div class="video-title">Introduction to Data Science</div>
+                    <p class="video-description">Explore data science concepts with Python, data analysis, and machine
+                         learning basics.</p>
+                    <button class="watch-button">Watch Now</button>
+               </div>
+          </div>
+
+          <!-- Video Card 5 -->
+          <div class="video-card">
+               <img src="https://via.placeholder.com/400x225" alt="Video Thumbnail" class="video-thumbnail">
+               <div class="video-info">
+                    <div class="video-title">CSS for Responsive Design</div>
+                    <p class="video-description">Master responsive design principles and build mobile-friendly websites
+                         using CSS.</p>
+                    <button class="watch-button">Watch Now</button>
+               </div>
+          </div>
+
+          <!-- Video Card 6 -->
+          <div class="video-card">
+               <img src="https://via.placeholder.com/400x225" alt="Video Thumbnail" class="video-thumbnail">
+               <div class="video-info">
+                    <div class="video-title">Building Web Apps with Node.js</div>
+                    <p class="video-description">Learn how to build scalable web applications with Node.js and
+                         Express.js.</p>
+                    <button class="watch-button">Watch Now</button>
+               </div>
+          </div>
+     </div>
+
+</body>
+
+</html>

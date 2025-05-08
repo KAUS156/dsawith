@@ -1,0 +1,7 @@
+{
+  "editor.fontSize": 30,
+  "editor.fontFamily": "font-family: 'Georgia', 'Times New Roman', Times, serif;",
+  "editor.accessibilityPageSize": 800,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true
+}

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help Page</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero-section {
+      background-image: url('/19007.jpg'); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 20px;
+    }
+
+    .search-box {
+      display: flex;
+      width: 40%;
+      min-width: 300px;
+      background-color: white;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      background-color: black;
+      border: none;
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .search-box button i {
+      color: rgb(15, 12, 12);
+      font-size: 18px;
+    }
+    .top-banner {
+      background-color: #dceeff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .top-banner p {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .top-banner button {
+      padding: 10px 20px;
+      border: 2px solid black;
+      background-color: white;
+      color: black;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      border-bottom: 1px solid #ccc;
+      margin-top: 20px;
+    }
+
+    .tab {
+      padding: 15px 25px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .tab.active {
+      border-bottom: 2px solid black;
+    }
+
+    .featured {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .featured h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .articles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .article h4 {
+      font-size: 14px;
+      color: gray;
+      margin-bottom: 5px;
+    }
+
+    .article p {
+      font-weight: bold;
+      font-size: 16px;
+      margin: 0;
+      color: #111;
+    }
+
+    @media (max-width: 600px) {
+      .tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .tab {
+        padding: 10px 0;
+      }
+    }
+    
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+
+    .shop-section {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .shop-column {
+      flex: 1 1 200px;
+      min-width: 220px;
+      margin: 20px;
+    }
+
+    .shop-column img {
+      width: 32px;
+      height: 32px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    .shop-column h3 {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .shop-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .shop-column li {
+      margin: 6px 0;
+      color: #333;
+    }
+    .support-section {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .support-section h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background-color: #111;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #111;
+      padding: 15px 30px;
+      border: 2px solid #111;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .links-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 60px;
+      margin-top: 30px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .link-box {
+      max-width: 220px;
+      text-align: left;
+    }
+
+    .link-box h4 {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .link-box p {
+      font-size: 14px;
+      color: #333;
+      margin: 0;
+    }
+
+    .link-box h4::after {
+      content: ' →';
+    }
+  </style>
+
+  <!-- Font Awesome for search icon -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="hero-section">
+    <h1>How can we help you?</h1>
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+      <button><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+  <div class="top-banner">
+    <p>Having problems with an order? Reach out to the seller with a help request.</p>
+    <button>Get help with an order</button>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active">Shopping on Etsy</div>
+    <div class="tab">Selling with Etsy</div>
+  </div>
+
+  <div class="featured">
+    <h2>Featured articles</h2>
+    <div class="articles">
+      <div class="article">
+        <h4>Shopping & Gifting</h4>
+        <p>What is Etsy Insider?</p>
+      </div>
+      <div class="article">
+        <h4>After You Purchase</h4>
+        <p>What’s the Status of My Order?</p>
+      </div>
+      <div class="article">
+        <h4>Shopping & Gifting</h4>
+        <p>How to Contact a Shop</p>
+      </div>
+      <div class="article">
+        <h4>Searching for Items</h4>
+        <p>How to Find the Best Items for You on Etsy</p>
+      </div>
+      <div class="article">
+        <h4>Order Issues & Returns</h4>
+        <p>How to Get Help with An Order</p>
+      </div>
+      <div class="article">
+        <h4>Shopping & Gifting</h4>
+        <p>How to Buy an Etsy Gift Card</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Shop on Etsy</h2>
+
+  <div class="shop-section">
+    <div class="shop-column">
+      <h3>🛒 Buying on Etsy</h3>
+      <ul>
+        <li>Shopping & Gifting</li>
+        <li>Searching for Items</li>
+        <li>Buying Safely</li>
+      </ul>
+    </div>
+
+    <div class="shop-column">
+      <h3>💳 Cart & Payment</h3>
+      <ul>
+        <li>Using Gift Cards & Coupons</li>
+        <li>Taxes & Customs Fees</li>
+        <li>Checkout</li>
+        <li>Payment Options</li>
+      </ul>
+    </div>
+
+    <div class="shop-column">
+      <h3>📦 Your Orders</h3>
+      <ul>
+        <li>After You Purchase</li>
+        <li>Order Issues & Returns</li>
+      </ul>
+    </div>
+
+    <div class="shop-column">
+      <h3>👤 Your Etsy Account</h3>
+      <ul>
+        <li>Sign In & Password</li>
+        <li>Account Settings</li>
+        <li>Regional Settings</li>
+        <li>Contacting Etsy</li>
+        <li>Account Safety & Privacy</li>
+      </ul>
+    </div>
+  </div>
+  <div class="support-section">
+    <h2>Didn't find what you needed? Try these.</h2>
+    
+    <div class="button-group">
+      <button class="btn-primary">Help with an order</button>
+      <button class="btn-secondary">Contact Etsy Support</button>
+    </div>
+
+    <div class="links-row">
+      <div class="link-box">
+        <h4>Read our Policies</h4>
+        <p>Get the ins and outs of buying and selling on Etsy</p>
+      </div>
+      <div class="link-box">
+        <h4>Check out the Etsy Journal</h4>
+        <p>Explore ideas and inspiration for creative living</p>
+      </div>
+      <div class="link-box">
+        <h4>See how you're protected</h4>
+        <p>Find out more about safety and security in our marketplace</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

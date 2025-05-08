@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Study Notes</title>
+     <style>
+          body {
+               font-family: Arial, sans-serif;
+               margin: 0;
+               padding: 0;
+               background-color: #f7f9fc;
+          }
+
+          /* Header Section */
+          header {
+               background-color: #28a745;
+               color: white;
+               text-align: center;
+               padding: 50px 0;
+               font-size: 2.5em;
+               animation: fadeIn 1.5s ease-out;
+          }
+
+          /* Notes Section */
+          .notes-container {
+               display: grid;
+               grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+               gap: 20px;
+               padding: 20px;
+          }
+
+          /* Individual Note Card */
+          .note-card {
+               background-color: white;
+               border-radius: 10px;
+               box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+               overflow: hidden;
+               transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+
+          .note-card:hover {
+               transform: translateY(-10px);
+               box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+          }
+
+          /* Note Info */
+          .note-info {
+               padding: 20px;
+               text-align: center;
+          }
+
+          .note-title {
+               font-size: 1.5em;
+               color: #333;
+               margin: 10px 0;
+          }
+
+          .note-description {
+               color: #555;
+               font-size: 1em;
+               margin-bottom: 10px;
+          }
+
+          /* Button to Download */
+          .download-button {
+               background-color: #28a745;
+               color: white;
+               border: none;
+               padding: 10px 20px;
+               font-size: 1em;
+               border-radius: 5px;
+               cursor: pointer;
+               transition: background-color 0.3s ease;
+          }
+
+          .download-button:hover {
+               background-color: #218838;
+          }
+
+          /* Animation for Fade In */
+          @keyframes fadeIn {
+               0% {
+                    opacity: 0;
+               }
+
+               100% {
+                    opacity: 1;
+               }
+          }
+     </style>
+</head>
+
+<body>
+
+     <!-- Header Section -->
+     <header>
+          Study Notes
+     </header>
+
+     <!-- Notes Container -->
+     <div class="notes-container">
+          <!-- Note Card 1 -->
+          <div class="note-card">
+               <div class="note-info">
+                    <div class="note-title">Introduction to HTML</div>
+                    <p class="note-description">A beginner’s guide to understanding HTML, its structure, and basic tags
+                         used in web development.</p>
+                    <a href="path/to/your/note1.pdf" download>
+                         <button class="download-button">Download PDF</button>
+                    </a>
+               </div>
+          </div>
+
+          <!-- Note Card 2 -->
+          <div class="note-card">
+               <div class="note-info">
+                    <div class="note-title">CSS for Beginners</div>
+                    <p class="note-description">Learn the fundamentals of CSS, including selectors, properties, and how
+                         to style web pages effectively.</p>
+                    <a href="path/to/your/note2.pdf" download>
+                         <button class="download-button">Download PDF</button>
+                    </a>
+               </div>
+          </div>
+
+          <!-- Note Card 3 -->
+          <div class="note-card">
+               <div class="note-info">
+                    <div class="note-title">JavaScript Basics</div>
+                    <p class="note-description">An introduction to JavaScript, variables, functions, and loops for
+                         beginners.</p>
+                    <a href="path/to/your/note3.pdf" download>
+                         <button class="download-button">Download PDF</button>
+                    </a>
+               </div>
+          </div>
+
+          <!-- Note Card 4 -->
+          <div class="note-card">
+               <div class="note-info">
+                    <div class="note-title">React.js Crash Course</div>
+                    <p class="note-description">A quick guide to React.js, its components, and state management for
+                         front-end development.</p>
+                    <a href="path/to/your/note4.pdf" download>
+                         <button class="download-button">Download PDF</button>
+                    </a>
+               </div>
+          </div>
+
+          <!-- Note Card 5 -->
+          <div class="note-card">
+               <div class="note-info">
+                    <div class="note-title">Node.js Fundamentals</div>
+                    <p class="note-description">Learn the basics of Node.js, its asynchronous nature, and how to set up
+                         a simple server.</p>
+                    <a href="path/to/your/note5.pdf" download>
+                         <button class="download-button">Download PDF</button>
+                    </a>
+               </div>
+          </div>
+
+          <!-- Note Card 6 -->
+          <div class="note-card">
+               <div class="note-info">
+                    <div class="note-title">CSS Grid & Flexbox</div>
+                    <p class="note-description">Explore the power of CSS Grid and Flexbox for building complex,
+                         responsive layouts.</p>
+                    <a href="path/to/your/note6.pdf" download>
+                         <button class="download-button">Download PDF</button>
+                    </a>
+               </div>
+          </div>
+     </div>
+
+</body>
+
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <title>Our Courses</title>
+     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+          body {
+               font-family: 'Poppins', sans-serif;
+               margin: 0;
+               padding: 0;
+               background: #f0f2f5;
+               background-image: linear-gradient(to right, rgb(6, 22, 143), rgb(4, 212, 63));
+          }
+
+          .achievement-right {
+               padding: 40px;
+               background: #f9f9f9;
+               max-width: 1200px;
+               background-image: linear-gradient(to right, rgb(6, 22, 143), rgb(4, 212, 63));
+               margin: auto;
+               border-radius: 8px;
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          }
+
+          .achievement-right h2 {
+               text-align: center;
+               font-size: 32px;
+               margin-bottom: 40px;
+               color: brown;
+          }
+
+          .categories {
+               max-width: 1000px;
+               margin: 0 auto;
+          }
+
+          .category {
+               margin-bottom: 20px;
+               border-radius: 8px;
+               overflow: hidden;
+               border: 1px solid #ddd;
+               background-color: white;
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+               transition: box-shadow 0.3s ease;
+          }
+
+          .category h3 {
+               margin: 0;
+               padding: 15px 20px;
+               background-color: #007bff;
+               color: white;
+               cursor: pointer;
+               font-size: 20px;
+               transition: background-color 0.3s ease;
+          }
+
+          .category h3:hover {
+               background-color: #0056b3;
+          }
+
+          .course-list {
+               max-height: 0;
+               overflow: hidden;
+               transition: max-height 0.5s ease, padding 0.3s ease;
+               padding: 0 20px;
+               background-color: #f0f8ff;
+          }
+
+          .course-list p {
+               margin: 15px 0;
+               color: #333;
+               border-bottom: 1px solid #ddd;
+               padding-bottom: 10px;
+          }
+
+          .course-list.active {
+               max-height: 500px;
+               padding: 20px;
+          }
+
+          .coursesshow {
+               display: flex;
+               gap: 20px;
+               flex-wrap: wrap;
+               margin-top: 50px;
+               justify-content: center;
+          }
+
+          .box {
+               width: 280px;
+               height: 180px;
+               border-radius: 15px;
+               background-size: cover;
+               background-position: center;
+               color: white;
+               font-size: 20px;
+               font-weight: 600;
+               display: flex;
+               align-items: flex-end;
+               justify-content: center;
+               padding-bottom: 15px;
+               box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+               transition: transform 0.4s ease, box-shadow 0.4s ease;
+               text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+               position: relative;
+               overflow: hidden;
+          }
+
+          .box::before {
+               content: "";
+               position: absolute;
+               inset: 0;
+               background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+               z-index: 0;
+          }
+
+          .box:hover {
+               transform: scale(1.05);
+               box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+          }
+
+          .box span {
+               position: relative;
+               z-index: 1;
+          }
+
+          @media (max-width: 768px) {
+               .coursesshow {
+                    flex-direction: column;
+                    align-items: center;
+               }
+
+               .box {
+                    width: 90%;
+               }
+          }
+
+          /* Chatbot */
+          .chat-container {
+               position: fixed;
+               bottom: 10px;
+               right: 10px;
+               width: 300px;
+               height: 400px;
+               background-color: #fff;
+               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+               border-radius: 10px;
+               padding: 10px;
+               display: none;
+               flex-direction: column;
+               margin-bottom: 100px;
+               z-index: 9999;
+          }
+
+          .chat-header {
+               background-color: #007bff;
+               color: white;
+               text-align: center;
+               padding: 10px;
+               font-size: 18px;
+               border-radius: 8px;
+          }
+
+          .chat-body {
+               flex: 1;
+               overflow-y: auto;
+               padding: 10px;
+               background-color: #f7f7f7;
+               border-radius: 8px;
+          }
+
+          .chat-footer {
+               display: flex;
+               align-items: center;
+               padding: 10px;
+               background-color: #007bff;
+               border-radius: 8px;
+          }
+
+          .chat-footer input {
+               flex: 1;
+               padding: 8px;
+               border-radius: 8px;
+               border: none;
+          }
+
+          .chat-footer button {
+               background-color: #fff;
+               border: 1px solid #007bff;
+               color: #007bff;
+               padding: 8px;
+               margin-left: 10px;
+               border-radius: 8px;
+               cursor: pointer;
+          }
+
+          .chat-footer button:hover {
+               background-color: #007bff;
+               color: white;
+          }
+
+          .chat-btn {
+               position: fixed;
+               bottom: 20px;
+               right: 20px;
+               background-color: #007bff;
+               color: white;
+               margin-bottom: 550px;
+               border: none;
+               height: 70px;
+               border-radius: 8px;
+
+               padding: 15px;
+
+               cursor: pointer;
+               font-size: 18px;
+               z-index: 999;
+          }
+     </style>
+</head>
+
+<body>
+
+     <div class="achievement-right">
+          <h2>OUR COURSES</h2>
+
+          <div class="categories">
+               <div class="category">
+                    <h3 onclick="toggleCourses('ds')">DATA STRUCTURE</h3>
+                    <div class="course-list" id="ds">
+                         <p><a href="https://calendar.app.google/qi5B1Q6KN8QjmPf28">Live Class Link</a></p>
+                         <p><a href="/coy.html">Previous Lecture Video</a></p>
+                         <p><a href="/note.html">Previous Class Notes</a></p>
+                         <p><strong>Upcoming Class:</strong> C++ LOOP <br><a
+                                   href="https://calendar.app.google/qi5B1Q6KN8QjmPf28">Join at 6: 20PM</a></p>
+                    </div>
+               </div>
+
+               <div class="category">
+                    <h3 onclick="toggleCourses('cpp')">C++ LANGUAGE</h3>
+                    <div class="course-list" id="cpp">
+                         <p><a href="#">Live Class Link</a></p>
+                         <p><a href="#">Previous Lecture Video</a></p>
+                         <p><a href="#">Previous Class Notes</a></p>
+                         <p><strong>Upcoming Class:</strong> OOP Concepts <br><a href="#">Join at 6PM</a></p>
+                    </div>
+               </div>
+
+               <div class="category">
+                    <h3 onclick="toggleCourses('upcoming')">UPCOMING COURSES</h3>
+                    <div class="course-list" id="upcoming">
+                         <p>Coming Soon...</p>
+                    </div>
+               </div>
+          </div>
+
+          <div class="coursesshow">
+               <div class="box" style="background-image: url('/download\ \(5\).jpg');">
+                    <span>DATA STRUCTURE</span>
+               </div>
+               <div class="box" style="background-image: url('https://via.placeholder.com/280x180?text=C%2B%2B');">
+                    <span>C++ LANGUAGE</span>
+               </div>
+               <div class="box" style="background-image: url('https://via.placeholder.com/280x180?text=Coming+Soon');">
+                    <span>UPCOMING COURSES</span>
+               </div>
+          </div>
+     </div>
+
+     <!-- Chatbot -->
+     <div class="chat-container" id="chat-container">
+          <div class="chat-header">Chat with Sir</div>
+          <div class="chat-body" id="chat-body">
+               <p>Type your message below...</p>
+          </div>
+          <div class="chat-footer">
+               <input type="text" id="chat-input" placeholder="Type a message...">
+               <button onclick="sendMessage()">Send</button>
+          </div>
+     </div>
+
+     <button class="chat-btn" onclick="toggleChat()">💬 chat here</button>
+
+     <!-- JavaScript -->
+     <script>
+          function toggleCourses(id) {
+               const content = document.getElementById(id);
+               content.classList.toggle("active");
+          }
+
+          function toggleChat() {
+               const chatContainer = document.getElementById('chat-container');
+               chatContainer.style.display = chatContainer.style.display === 'flex' ? 'none' : 'flex';
+          }
+
+          function sendMessage() {
+               const chatInput = document.getElementById('chat-input');
+               const chatBody = document.getElementById('chat-body');
+
+               if (chatInput.value.trim() !== "") {
+                    const userMessage = document.createElement('p');
+                    userMessage.textContent = `You: ${chatInput.value}`;
+                    chatBody.appendChild(userMessage);
+
+                    const botResponse = document.createElement('p');
+                    botResponse.textContent = `Bot: Thank you for your message! We'll reply soon.`;
+                    chatBody.appendChild(botResponse);
+
+                    chatBody.scrollTop = chatBody.scrollHeight;
+
+                    // Open email client
+                    window.location.href = `mailto:kaushalap455@gmail.com?subject=Student Message&body=${encodeURIComponent(chatInput.value)}`;
+
+                    chatInput.value = "";
+               }
+          }
+
+
+
+          // Initialize EmailJS with your user public key
+          emailjs.init("R-N0ZMROcE9iQvtfY"); // Replace with your actual EmailJS public key
+
+          function toggleChat() {
+               const chatContainer = document.getElementById('chat-container');
+               chatContainer.style.display = chatContainer.style.display === 'flex' ? 'none' : 'flex';
+          }
+
+          function sendMessage() {
+               const chatInput = document.getElementById('chat-input');
+               const chatBody = document.getElementById('chat-body');
+               const message = chatInput.value.trim();
+
+               if (message !== "") {
+                    const userMessage = document.createElement('p');
+                    userMessage.textContent = `You: ${message}`;
+                    chatBody.appendChild(userMessage);
+
+                    const botResponse = document.createElement('p');
+                    botResponse.textContent = `Bot: Thank you for your message!`;
+                    chatBody.appendChild(botResponse);
+
+                    chatBody.scrollTop = chatBody.scrollHeight;
+
+                    // Send email using EmailJS
+                    emailjs.send("service_m3x01ws", "template_po2onuh", {
+                         message: message,
+                         to_email: "kaushalap455@gmail.com"
+                    }).then(
+                         () => alert("Message sent to Kaushal!"),
+                         (error) => alert("Failed to send message: " + error.text)
+                    );
+
+                    chatInput.value = "";
+               }
+          }
+
+
+     </script>
+
+</body>
+
+</html>

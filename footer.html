@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .a {
+            height: 100vh;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .a .b {
+            background-color: rgb(252, 248, 248);
+            max-width: 1028px;
+            width: 90%;
+            min-height: 336px;
+            margin: auto;
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .a .c {
+            max-width: 1760px;
+            width: 100%;
+            min-height: 230px;
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .a .c .f {
+            margin-left: -100px;
+            margin-top: -3px;
+            height: 38px;
+            width: 140px;
+            background-image: url('/yatharth logo-01.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .footer-container {
+            background: linear-gradient(to right, rgb(209, 37, 37), purple, blue);
+            padding: 40px 20px;
+            min-height: 400px;
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 160px;
+            margin-left: 45px;
+        }
+
+        .footer-column {
+            flex: 1 1 200px;
+            min-width: 200px;
+        }
+
+        .footerpoint h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .footerpoint1 {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            line-height: 28px;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            animation: slideIn 0.8s ease-in-out;
+        }
+
+        .footer-item i {
+            margin-top: 5px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .footer-item a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .footer-item a:hover {
+            color: #00bcd4;
+            transition: color 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .a .b form {
+            flex: 1 1 300px;
+            margin: 10px;
+        }
+
+        .footer-img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            margin-top: -15px;
+            margin-left: -10px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .a .b .d input,
+        input {
+            margin: 10px 0;
+            height: 50px;
+            width: 100%;
+            max-width: 304px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .a .b .vertical-line {
+            border-left: 2px solid #0e0d0d;
+            height: 80%;
+            opacity: 0.4;
+            position: absolute;
+            left: 50%;
+            top: 10%;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+
+        .a .b button {
+            margin: 20px auto;
+            display: block;
+            border: none;
+            background-color: rgb(4, 0, 61);
+            height: 42px;
+            width: 144px;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .a .b button:hover {
+            background-color: rgb(6, 0, 90);
+        }
+
+        .a .b .location {
+            flex: 1 1 300px;
+            width: 100%;
+            max-width: 480px;
+            height: 300px;
+            margin: 10px;
+        }
+
+        .a .b .location iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .a .b {
+                width: 85%;
+                top: 15%;
+            }
+
+            .a .c {
+                top: 60%;
+            }
+
+            .footer-row {
+                margin-left: 20px;
+            }
+
+            .a .b .location {
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .a .b {
+                width: 90%;
+                top: 10%;
+                min-height: 500px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .a .c {
+                top: 70%;
+            }
+
+            .footer-container {
+                min-height: auto;
+                padding: 20px;
+            }
+
+            .footer-row {
+                flex-direction: column;
+                margin-left: 0;
+                margin-top: 20px;
+            }
+
+            .footer-column {
+                min-width: 100%;
+            }
+
+            .a .b .vertical-line {
+                display: none;
+            }
+
+            .a .b .location {
+                max-width: 100%;
+                height: 250px;
+            }
+
+            .a .b form {
+                flex: 1 1 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .a .b {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .a .b form {
+                margin: 5px;
+            }
+
+            .a .b .d input,
+            input {
+                max-width: 100%;
+                margin: 8px 0;
+            }
+
+            .footer-row {
+                gap: 15px;
+            }
+
+            .footer-column {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b">
+            <form>
+                <input type="text" name="name" placeholder="Name"><br>
+                <input type="text" name="email" placeholder="Email"><br>
+                <div class="d">
+                    <input type="text" name="phone" placeholder="Phone"><br>
+                </div>
+                <button>Click Me</button>
+            </form>
+            <div class="vertical-line"></div>
+            <div class="location">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.161396349914!2d84.35801217541591!3d26.223944877064344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3992fd54570c4d51%3A0x29cbd3cd17f687d3!2sYatharth%20group%20of%20institution!5e0!3m2!1sen!2sin!4v1742793983889!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="c">
+            <footer class="footer-container">
+                <div class="footer-row">
+                    <div class="footer-column">
+                        <div class="footerpoint">
+                            <h2>Address</h2>
+                        </div>
+                        <div class="footerpoint1">
+                            <div class="footer-item animate">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <a href="#">
+                                    <p>3rd Floor B.G Company<br>Building, Naya Bazar<br>Near Hospital Road, (Siwan)</p>
+                                </a>
+                            </div>
+                            <div class="footer-item animate">
+                                <i class="fa-solid fa-phone"></i>
+                                <a href="tel:+917015532197"><p>+91-7015532197</p></a>
+                            </div>
+                            <div class="footer-item animate">
+                                <i class="fa-solid fa-envelope"></i>
+                                <a href="mailto:kaushalap455@gmail.com"><p>kaushalap455@gmail.com</p></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <div class="footerpoint">
+                            <h2>Quick Link</h2>
+                        </div>
+                        <div class="footerpoint1">
+                            <div class="footer-item animate">
+                                <i class="fa-solid fa-link"></i>
+                                <a href="#"><p>Home</p></a>
+                            </div>
+                            <div class="footer-item animate">
+                                <i class="fa-solid fa-link"></i>
+                                <a href="#"><p>Courses</p></a>
+                            </div>
+                            <div class="footer-item animate">
+                                <i class="fa-solid fa-link"></i>
+                                <a href="#"><p>Contact</p></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <div class="footerpoint">
+                            <h2>Gallery</h2>
+                            <img src="/images (5).jpeg" class="footer-img" alt="Gallery Image">
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <div class="footerpoint">
+                            <h2>Quick Link</h2>
+                        </div>
+                        <div class="footerpoint1">
+                            <div class="footer-item animate">
+                                <i class="fa-solid fa-link"></i>
+                                <a href="#"><p>Home</p></a>
+                            </div>
+                            <div class="footer-item animate">
+                                <i class="fa-solid fa-link"></i>
+                                <a href="#"><p>Courses</p></a>
+                            </div>
+                            <div class="footer-item animate">
+                                <i class="fa-solid fa-link"></i>
+                                <a href="#"><p>Contact</p></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
